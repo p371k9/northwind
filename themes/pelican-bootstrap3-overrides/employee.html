@@ -1,0 +1,117 @@
+{% extends "article.html" %}
+
+{% block content %}
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="{{ SITEURL }}/{{ article.url }}"
+                       rel="bookmark"
+                       title="{{ _('Permalink to') }} {{ article.title|striptags }}">
+                        {{ article.title }}
+                    </a>
+                </h1>
+            </header>
+            
+            <div class="entry-content">
+            
+                <!--div class="panel">
+                    <div class="panel-body">
+                        {# % include "includes/article_info.html" % #}
+                    </div>
+                </div-->
+                
+                {% set ns = namespace() %}                
+                {% for c in categories %}
+                    {% if c[0].name == "employee" %}
+                        {% for e in c[1] %}
+                            {% if e.id == article.reportsto %} 
+                                {% set ns.reportsto_name = e.title %}
+                                {% set ns.reportsto_url = e.url %}
+                            {% endif %}
+                            {% if e.id == article.id %}
+                                {% if not loop.first %}                                
+                                    {% set ns.prev = c[1][loop.index0 - 1] %}
+                                {% endif %} 
+                                {% if not loop.last %}                                
+                                    {% set ns.next = c[1][loop.index0 + 1] %}
+                                {% endif %} 
+                            {% endif %}
+                            
+                            
+                        {% endfor %} 
+                    {% endif %}
+                {% endfor %} 
+                
+
+				<img src="{{ SITEURL }}/images/{{ article.photo }}" class="img-thumbnail pull-right" style="width:160px">
+
+
+				<p>     
+        			id: <b>{{ article.id }}</b><br/>
+        			title: <b>{{ article.summary }}</b><br/>
+        			titleofcourtesy: <b>{{ article.titleofcourtesy }}</b><br/>
+        			birthdate: <b>{{ article.birthdate }}</b><br/>
+        			hiredate: <b>{{ article.hiredate }}</b><br/>
+        			address: <b>{{ article.address }}</b><br/>
+        			city: <b>{{ article.city }}</b><br/>
+        			region: <b>{{ article.region }}</b><br/>
+        			postalcode: <b>{{ article.postalcode }}</b><br/>
+        			country: <b>{{ article.country }}</b><br/>
+        			homephone: <b>{{ article.homephone }}</b><br/>
+        			extension: <b>{{ article.extension }}</b><br/>
+        			reportsto: 
+        			{% if article.reportsto %}       					            
+            			<a href="{{SITEURL}}/{{ ns.reportsto_url }}">
+            			{{ ns.reportsto_name }}
+            			</a>
+		            {% endif %}
+				</p>                    
+                
+                <p>{{ article.content }}</p>
+                
+                
+                <br/>
+			        
+			        
+			        
+                <hr />   
+<div class="row">
+				<div class="col-xs-6">
+
+
+{% if ns.prev %}
+    <span class="glyphicon glyphicon-arrow-left"></span>	
+    <a href="{{ SITEURL }}/{{ ns.prev.url}}">
+	    {{ ns.prev.title }}
+    </a>
+{% endif %}
+				
+				</div>
+				<div class="col-xs-6"><span class="pull-right">
+				
+{% if ns.next %}
+    <a href="{{ SITEURL }}/{{ ns.next.url }}">
+	    {{ ns.next.title }}
+    </a>
+    <span class="glyphicon glyphicon-arrow-right"></span>
+{% endif %}
+				
+								</span></div>
+		  	</div>
+            <hr />		  	
+                
+                
+            </div>
+            <!-- /.entry-content -->
+            {% include 'includes/related-posts.html' %}
+            {% include 'includes/series.html' %}
+            {% include 'includes/addthis.html' %}
+            {% include 'includes/shariff.html' %}
+            {% include 'includes/comments.html' %}
+            {% include 'includes/show_source.html' %}
+            
+        </article>
+    </section>
+
+{% endblock %}

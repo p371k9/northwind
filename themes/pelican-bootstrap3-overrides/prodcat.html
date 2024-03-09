@@ -1,0 +1,82 @@
+{% extends "article.html" %}
+
+{% block content %}
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="{{ SITEURL }}/{{ article.url }}"
+                       rel="bookmark"
+                       title="{{ _('Permalink to') }} {{ article.title|striptags }}">
+                        {{ article.title }}
+                    </a>
+                </h1>
+            </header>
+            
+            <div class="entry-content">
+            
+            
+                <!--div class="panel">
+                    <div class="panel-body">
+                        {# % include "includes/article_info.html" % #}
+                    </div>
+                </div-->
+                
+<div class="media">
+  <div class="media-body">
+    			id: <b>{{ article.id }}</b><br/>
+    			description: <b>{{ article.summary }}</b><br/>
+  </div>
+  <div class="media-right">
+    <img src="{{ SITEURL }}/images/{{ article.photo }}" class="media-object img-thumbnail" >
+  </div>
+</div>                
+      
+      <hr  />
+      
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>in Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+                {% for a in articles if a.category=="product" %}
+                	
+		            {% if a.categoryid == article.id %}
+    
+    
+      <tr>
+        <td><a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a></td>
+        <td>${{ a.unitprice }}</td>
+        <td>{{ a.quantityperunit }}</td>
+        <td>{{ a.unitsinstock }}</td>
+      </tr>
+      
+					{% endif %}
+                {% endfor %}
+      
+    </tbody>
+  </table>
+  </div>      
+                
+                
+                
+            </div>
+            <!-- /.entry-content -->
+            {% include 'includes/related-posts.html' %}
+            {% include 'includes/series.html' %}
+            {% include 'includes/addthis.html' %}
+            {% include 'includes/shariff.html' %}
+            {% include 'includes/comments.html' %}
+            {% include 'includes/show_source.html' %}
+        </article>
+        
+    </section>
+
+{% endblock %}

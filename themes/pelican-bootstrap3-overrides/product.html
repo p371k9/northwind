@@ -1,0 +1,54 @@
+{% extends "article.html" %}
+
+{% block content %}
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="{{ SITEURL }}/{{ article.url }}"
+                       rel="bookmark"
+                       title="{{ _('Permalink to') }} {{ article.title|striptags }}">
+                        {{ article.title }}
+                    </a>
+                </h1>
+            </header>
+            
+            <div class="entry-content">
+            
+            
+                <!--div class="panel">
+                    <div class="panel-body">
+                        {# % include "includes/article_info.html" % #}
+                    </div>
+                </div-->
+
+				<p> 
+        			id: <b>{{ article.id }}</b><br/>
+        			supplier: <b>{{ article.supplier }}</b><br/>
+        			category:         			
+		            {% for a in articles if a.category=="prodcat" %}                	
+				        {% if a.id == article.categoryid %}       
+		    				<a href="{{SITEURL}}/{{ a.url }}">{{ a.title }}</a>
+						{% endif %}
+		            {% endfor %} <br/>
+        			quantityperunit: <b>{{ article.quantityperunit }}</b><br/>
+        			unitprice: <b>${{ article.unitprice }}</b><br/>
+        			unitsinstock: <b>{{ article.unitsinstock }}</b><br/>
+        			unitsonorder: <b>{{ article.unitsonorder }}</b><br/>
+        			reorderlevel: <b>{{ article.reorderlevel }}</b><br/>
+        			discontinued: <b>{{ article.discontinued }}</b><br/>
+				</p>                     
+                
+                <p>{{ article.content }}</p>
+            </div>
+            <!-- /.entry-content -->
+            {% include 'includes/related-posts.html' %}
+            {% include 'includes/series.html' %}
+            {% include 'includes/addthis.html' %}
+            {% include 'includes/shariff.html' %}
+            {% include 'includes/comments.html' %}
+            {% include 'includes/show_source.html' %}
+        </article>
+    </section>
+
+{% endblock %}

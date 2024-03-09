@@ -1,0 +1,42 @@
+{% extends "article_list.html" %}
+{% block title %}{{ category }} - {{ SITENAME }}{% endblock %}
+{% block meta %}
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="keywords" content="{{ category }}" />
+{% endblock %}
+
+{# overwrite the content block #}
+{% block content %}
+	{% if category in ('employee', 'prodcat') %}
+		
+		{% if articles %}
+			{% for article in articles %}		
+			
+                {% include "includes/list_part.html"%}			
+			    
+			{% endfor %}
+		{% endif %}
+
+
+
+	{% else %}	
+		{{ super() }}
+	{% endif %}	
+	
+	{% include 'includes/pagination.html' %}	
+{% endblock content %}
+
+
+
+
+{% block breadcrumbs %}
+    {% if DISPLAY_BREADCRUMBS %}
+    <ol class="breadcrumb">
+        <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+        <li><a href="{{ SITEURL}}/{{ CATEGORIES_URL }}" title="{{ SITENAME }} {{ _('Categories') }}">{{ _('Categories') }}</a></li>
+        <li class="active">{{ category }}</li>
+    </ol>
+    {% endif %}
+    
+{% endblock %}
+
