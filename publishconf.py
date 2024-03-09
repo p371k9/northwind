@@ -12,7 +12,7 @@ from pelicanconf import *
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
 #SITEURL = 'http://localhost:8000/docs'
-SITEURL = 'https://github.com/p371k9/northwind'
+SITEURL = 'https://p371k9.github.io/northwind'
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
