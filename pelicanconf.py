@@ -8,7 +8,7 @@ SITEURL = ""
 FAVICON = 'images/favicon.ico'
 
 PATH = 'content'
-OUTPUT_PATH = 'docs/'
+OUTPUT_PATH = 'output/'
 
 TIMEZONE = 'Europe/Budapest'
 

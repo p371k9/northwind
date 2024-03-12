@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+
+{% block google_site_verification %}
+<meta name="google-site-verification" content="qCryp0unEM3-pVFnWmg1_TD7_fTX_RIDtbcAexyrqaY" />
+{% endblock %}
+
 {% block content %}
 
 {% for c in categories if c[0].name == "prodcat" %}
@@ -16,3 +21,11 @@
 
     {% include 'includes/pagination.html' %}
 {% endblock content %}
+
+
+
+
+
+
+
+
