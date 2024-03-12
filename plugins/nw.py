@@ -47,7 +47,7 @@ def addArticle(articleGenerator):
         
     df = pd.read_csv(articleGenerator.context["PATH"] + "/categories.csv")
     for row in df.itertuples():
-        content = ""
+        content = "product category"
         newArticle = Article(content, {            
             "template": "prodcat",
             "title": row.categoryname,  
@@ -66,7 +66,7 @@ def addArticle(articleGenerator):
     # productid,productname,supplierid,categoryid,quantityperunit,unitprice,
     # unitsinstock,unitsonorder,reorderlevel,discontinued
     for row in df.itertuples():
-        content = ""
+        content = "product :::::: $" + str(row.unitprice) + ", " + row.companyname + ", " + row.quantityperunit
         newArticle = Article(content, {            
             "template": "product",
             "title": row.productname,  

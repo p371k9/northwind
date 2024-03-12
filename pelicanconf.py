@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 AUTHOR = 'p371k9'
 SITENAME = 'Northwind Traders'
-#SITEURL = 'http://127.0.0.1:8000/output'
 SITEURL = ""
 FAVICON = 'images/favicon.ico'
 
@@ -22,15 +21,19 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+"""
 #INDEX_SAVE_AS = None
 ARCHIVES_SAVE_AS = ''
 AUTHORS_SAVE_AS = ''
 CATEGORIES_SAVE_AS = ''
 TAGS_SAVE_AS = ''
 
-
 #AUTHOR_SAVE_AS = ''
 #CATEGORY_SAVE_AS = ''
+"""
+
+DIRECT_TEMPLATES = ['index', 'categories', 'search']
+
 
 # Blogroll
 LINKS = (('Microsoft Learn', 'https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/northwind-install'),
@@ -62,5 +65,5 @@ THEME_TEMPLATES_OVERRIDES = ["themes/pelican-bootstrap3-overrides"]
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
 PLUGIN_PATHS = ['/home/pp/pelican-plugins', "./plugins"]		# "/srv/pelican/plugins"]
-PLUGINS =["i18n_subsites", "nw"]	# ["nw"]	# ["assets", "liquid_tags", "sitemap"]
+PLUGINS =["i18n_subsites", "nw"]	# ["tipue_search"]	# ["assets", "liquid_tags", "sitemap"]
 
