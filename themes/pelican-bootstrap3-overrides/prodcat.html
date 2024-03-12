@@ -39,9 +39,9 @@
     <thead>
       <tr>
         <th>Product name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>in Stock</th>
+        <th class="text-right">Price</th>
+        <th class="text-right">Quantity</th>
+        <th class="text-right">in Stock</th>
       </tr>
     </thead>
     <tbody>
@@ -53,9 +53,9 @@
     
       <tr>
         <td><a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a></td>
-        <td>${{ a.unitprice }}</td>
-        <td>{{ a.quantityperunit }}</td>
-        <td>{{ a.unitsinstock }}</td>
+        <td class="text-right">${{ a.unitprice }}</td>
+        <td class="text-right">{{ a.quantityperunit }}</td>
+        <td class="text-right">{{ a.unitsinstock }}</td>
       </tr>
       
 					{% endif %}

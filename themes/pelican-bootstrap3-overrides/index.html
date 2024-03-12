@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% for c in categories if c[0].name == "prodcat" %}
+{% for c in categories if c[0].name == "products by category" %}
     {% for article in c[1] %}
     
         {% include "includes/list_part.html"%}

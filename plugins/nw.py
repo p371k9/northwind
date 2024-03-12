@@ -20,7 +20,8 @@ def addArticle(articleGenerator):
     
     df = pd.read_csv(articleGenerator.context["PATH"] + "/employees.csv")
     for row in df.itertuples():
-        content = row.notes        
+        content = row.notes 
+        region = "–" if pd.isna(row.region) else row.region       
         newArticle = Article(content, {            
             "template": "employee",
             "title": row.firstname + ' ' + row.lastname,  
@@ -33,7 +34,7 @@ def addArticle(articleGenerator):
             "hiredate": row.hiredate,
             "address": row.address,
             "city": row.city,
-            "region": row.region,
+            "region": region,
             "postalcode": row.postalcode,
             "country": row.country,
             "homephone": row.homephone,
@@ -52,7 +53,7 @@ def addArticle(articleGenerator):
             "template": "prodcat",
             "title": row.categoryname,  
             "date": datetime.datetime.now(),
-            "category": baseReader.process_metadata("category", "prodcat"),
+            "category": baseReader.process_metadata("category", "products by category"),
             "summary": row.description,
             "id": baseReader.process_metadata("id", row.categoryid), 
             "photo": row.picture    

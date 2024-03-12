@@ -51,7 +51,10 @@ SOCIAL = (('facebook', 'https://www.facebook.com/MicrosoftAccessProducts/posts/p
 DISPLAY_CATEGORIES_ON_MENU = True            
 DISPLAY_PAGES_ON_MENU = True   
 # sajnos nem emeli ki az aktuális oldal címét  MENUITEMS = (('Products by category', SITEURL+'/category/prodcat.html'),('Employees', SITEURL+'/category/employee.html'),('About', SITEURL+'/pages/about.html'))            
+
 BOOTSTRAP_NAVBAR_INVERSE = True
+#BOOTSTRAP_THEME = 'slate'
+
 HIDE_SITENAME = True
 
 DEFAULT_PAGINATION = False
@@ -64,6 +67,6 @@ THEME = "/home/pp/pelican-themes/pelican-bootstrap3"
 THEME_TEMPLATES_OVERRIDES = ["themes/pelican-bootstrap3-overrides"]
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
-PLUGIN_PATHS = ['/home/pp/pelican-plugins', "./plugins"]		# "/srv/pelican/plugins"]
+PLUGIN_PATHS = ['/home/pp/pelican-plugins', "./plugins", '/home/pp/pelican-plugins/tipue_search/pelican/plugins']		# "/srv/pelican/plugins"]
 PLUGINS =["i18n_subsites", "nw"]	# ["tipue_search"]	# ["assets", "liquid_tags", "sitemap"]
 
