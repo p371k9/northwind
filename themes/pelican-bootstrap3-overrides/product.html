@@ -26,7 +26,7 @@
         			id: <b>{{ article.id }}</b><br/>
         			supplier: <b>{{ article.supplier }}</b><br/>
         			category:         			
-		            {% for a in articles if a.category=="prodcat" %}                	
+		            {% for a in articles if a.category=="products by category" %}                	
 				        {% if a.id == article.categoryid %}       
 		    				<a href="{{SITEURL}}/{{ a.url }}">{{ a.title }}</a>
 						{% endif %}
