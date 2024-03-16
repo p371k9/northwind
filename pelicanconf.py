@@ -68,5 +68,18 @@ THEME_TEMPLATES_OVERRIDES = ["themes/pelican-bootstrap3-overrides"]
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
 PLUGIN_PATHS = ['/home/pp/pelican-plugins', "./plugins", '/home/pp/pelican-plugins/tipue_search/pelican/plugins']		# "/srv/pelican/plugins"]
-PLUGINS =["i18n_subsites", "nw"]	# ["tipue_search"]	# ["assets", "liquid_tags", "sitemap"]
+PLUGINS =["i18n_subsites", "nw", "sitemap"]	# ["tipue_search"]	# ["assets", "liquid_tags", "sitemap"]
 
+SITEMAP = {
+    "format": "xml",
+    "priorities": {
+        "articles": 0.5,
+        "indexes": 0.5,
+        "pages": 0.5
+    },
+    "changefreqs": {
+        "articles": "monthly",
+        "indexes": "daily",
+        "pages": "monthly"
+    }
+}
