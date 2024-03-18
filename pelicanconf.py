@@ -9,6 +9,10 @@ FAVICON = 'images/favicon.ico'
 
 PATH = 'content'
 OUTPUT_PATH = 'output/'
+STATIC_PATHS = [
+    'images', 
+    'robots.txt'
+]
 
 TIMEZONE = 'Europe/Budapest'
 
