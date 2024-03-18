@@ -5,13 +5,13 @@ from __future__ import unicode_literals
 AUTHOR = 'p371k9'
 SITENAME = 'Northwind Traders'
 SITEURL = ""
-FAVICON = 'images/favicon.ico'
+FAVICON = 'favicon.ico'
 
 PATH = 'content'
 OUTPUT_PATH = 'output/'
 STATIC_PATHS = [
     'images', 
-    'robots.txt'
+    'favicon.ico'
 ]
 
 TIMEZONE = 'Europe/Budapest'

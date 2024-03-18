@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://p371k9.github.io/northwind/sitemap.xml
